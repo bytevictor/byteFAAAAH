@@ -29,7 +29,6 @@ if [ -f "FAAAAH.wav" ]; then
     cp FAAAAH.wav "$AUDIO_DIR/"
 else
     echo "⚠️ No se encontró el archivo FAAAAH.wav."
-    echo "Asegúrate de convertirlo a .wav y dejarlo en esta carpeta."
 fi
 
 # ==========================================
@@ -52,7 +51,7 @@ if [ -n "$SHELL_RC" ]; then
     fi
     
     echo -e "${GREEN}¡Instalación completada!${NC}"
-    echo "Para aplicar los cambios, ejecuta: source $SHELL_RC"
+    echo "Para aplicar los cambios, ejecuta: source $SHELL_RC o reinicia la shell."
 else
     echo "Añade esta línea a tu configuración manualmente:"
     echo "source $INSTALL_DIR/FAAAAH-listener.sh"
