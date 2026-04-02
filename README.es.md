@@ -23,7 +23,10 @@ Añadimos soporte directo para:
   Reproducir audio dentro de WSL suele requerir molestas configuraciones externas. Nos las saltamos todas.
 
   **¿Cómo?** El script detecta WSL, copia el archivo `FAAAAH.wav` a `C:\Users\Public\.faaaah-listener\`, y usa la interoperabilidad de WSL para llamar a **PowerShell** (`powershell.exe`) para que reproduzca el sonido de forma nativa en Windows (`Media.SoundPlayer`). Simplemente funciona™.
-- 🟦 **Windows Nativo (PowerShell)**: Tenemos una implementación separada usando PowerShell puro. ¡Echa un vistazo a la carpeta [windows-powershell](./windows-powershell) para más detalles!
+
+> [!TIP]
+>
+> - 🟦 **Windows Nativo (PowerShell)**: Tenemos una implementación separada usando PowerShell puro. ¡Echa un vistazo a la carpeta [windows-powershell](./windows-powershell) para más detalles!
 
 ## Instalación 💿
 
