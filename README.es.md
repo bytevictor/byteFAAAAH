@@ -1,0 +1,47 @@
+# FAAAAH-Listener 📢🐧
+
+> Añade el sonido del meme "FAAAAH" a tu terminal cada vez que un comando falla. Task failed successfully.
+
+_[Read in English](README.md)_
+
+## ¿Cómo funciona? ⚙️
+
+Nos enganchamos al ciclo de vida de tu shell:
+
+- **Bash**: Abusando de la variable de entorno `PROMPT_COMMAND`.
+- **Zsh**: Usando la función `precmd` mediante `add-zsh-hook`.
+
+Justo antes de mostrarte un nuevo prompt, el script comprueba si el último comando falló (`$? != 0`). Si falló, lanza un subproceso aislado en segundo plano que reproduce el sonido. Cero bloqueos, cero overhead. Solo puro feedback auditivo.
+
+## Soporte Multiplataforma 🌍
+
+Añadimos soporte directo para:
+
+- 🐧 **Linux Nativo**: Automágicamente detecta y usa los reproductores de tu sistema (`paplay` para PulseAudio, `aplay` para ALSA).
+- 🍎 **macOS**: Utiliza el comando integrado `afplay`.
+- 🪟 **WSL (Windows Subsystem for Linux)**:
+  Reproducir audio dentro de WSL suele requerir molestas configuraciones externas. Nos las saltamos todas.
+
+  **¿Cómo?** El script detecta WSL, copia el archivo `FAAAAH.wav` a `C:\Users\Public\.faaaah-listener\`, y usa la interoperabilidad de WSL para llamar a **PowerShell** (`powershell.exe`) para que reproduzca el sonido de forma nativa en Windows (`Media.SoundPlayer`). Simplemente funciona™.
+
+## Instalación 💿
+
+1. Clona o descarga este repo en tu PC.
+2. Lanza el script mágico:
+   ```bash
+   ./install.sh
+   ```
+3. Recarga tu terminal y escribe algo mal a propósito para probarlo:
+   ```bash
+   source ~/.zshrc # (o ~/.bashrc)
+   ```
+
+## Desinstalación 🏳️
+
+¿Tus compañeros de piso se están quejando del ruido? Te entendemos.
+
+```bash
+./uninstall.sh
+```
+
+Luego recarga tu shell para matar cualquier proceso en segundo plano que se haya quedado colgado.

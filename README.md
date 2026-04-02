@@ -1,0 +1,47 @@
+# FAAAAH-Listener 📢🐧
+
+> Add FAAAAAH meme sound to your shell on every non-0 command output. Task failed successfully. Late night boredom medicine project.
+
+_[Leer en Español](README.es.md)_
+
+## How it works ⚙️
+
+We hook into your shell's lifecycle:
+
+- **Bash**: Abusing the `PROMPT_COMMAND` environment variable.
+- **Zsh**: Using `precmd` via `add-zsh-hook`.
+
+Right before dropping a new prompt, the script checks if the last command failed (`$? != 0`). If it did, it spawns an isolated background subshell to play the lovely sound. Zero overhead, zero UI blocking. Just pure auditory feedback.
+
+## OS Support 🌍
+
+We added native support for:
+
+- 🐧 **Native Linux**: Automatically finds your system's default audio players (`paplay` for PulseAudio, `aplay` for ALSA).
+- 🍎 **macOS**: Uses the built-in `afplay` command.
+- 🪟 **WSL (Windows Subsystem for Linux)**:
+  Playing audio inside WSL requires annoying external setups. We bypassed them entirely.
+
+  **How?** The script detects WSL, copies the `FAAAAH.wav` file to `C:\Users\Public\.faaaah-listener\`, and uses WSL's interoperability to call **PowerShell** (`powershell.exe`) and play the sound using native Windows `Media.SoundPlayer`. It just works™.
+
+## Installation 💿
+
+1. Clone or download this repo somewhere safe.
+2. Run the magic script:
+   ```bash
+   ./install.sh
+   ```
+3. Reload your shell and make a typo on purpose:
+   ```bash
+   source ~/.zshrc # (or ~/.bashrc)
+   ```
+
+## Uninstallation 🏳️
+
+Getting noise complaints from your roommates? We got you.
+
+```bash
+./uninstall.sh
+```
+
+Then reload your shell to kill any lingering background nonsense.
