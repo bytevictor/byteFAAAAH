@@ -14,7 +14,8 @@ It overrides the native `prompt` function. Before the prompt is drawn, it evalua
    ```powershell
    .\install.ps1
    ```
-   > **Note:** If PowerShell blocks script execution, you may need to run PowerShell as Administrator and execute `Set-ExecutionPolicy RemoteSigned`.
+   > [!IMPORTANT]
+   > If PowerShell blocks script execution, you may need to run PowerShell as Administrator and execute `Set-ExecutionPolicy RemoteSigned`.
 3. Reload your terminal or run `. $PROFILE`.
 
 ## Uninstallation 🏳️
