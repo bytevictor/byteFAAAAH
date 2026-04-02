@@ -13,6 +13,10 @@ We hook into your shell's lifecycle:
 
 Right before dropping a new prompt, the script checks if the last command failed (`$? != 0`). If it did, it spawns an isolated background subshell to play the sound. Zero overhead, zero UI blocking. Just auditory feedback.
 
+> [!TIP]
+>
+> - 🟦 **Native Windows (PowerShell)**: We have a dedicated, pure PowerShell implementation. See the [windows-powershell](./windows-powershell) folder for details!
+
 ## OS Support 🌍
 
 We added native support for:
@@ -23,10 +27,6 @@ We added native support for:
   Playing audio inside WSL requires annoying external setups. We bypassed them entirely.
 
   **How?** The script detects WSL, copies the `FAAAAH.wav` file to `C:\Users\Public\.faaaah-listener\`, and uses WSL's interoperability to call **PowerShell** (`powershell.exe`) and play the sound using native Windows `Media.SoundPlayer`. It just works™.
-
-> [!TIP]
->
-> - 🟦 **Native Windows (PowerShell)**: We have a dedicated, pure PowerShell implementation. See the [windows-powershell](./windows-powershell) folder for details!
 
 ## Installation 💿
 
