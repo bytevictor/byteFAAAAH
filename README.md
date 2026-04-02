@@ -1,4 +1,4 @@
-# FAAAAH-Listener 📢🐧
+# byteFAAAH 📢🐧
 
 > Add FAAAAAH meme sound to your shell on every non-0 command output. Task failed successfully.
 
